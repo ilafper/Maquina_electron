@@ -1,0 +1,4 @@
+instalar las dependencias de node
+- npm init
+- npm install electron
+- npm install mongodb

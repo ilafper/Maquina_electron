@@ -1,0 +1,48 @@
+INTERFACES Y ACCESO A DATOS
+
+maquina de expendedora electronjs
+
+acotar la monedas que se va a permitir(a partir de 5cent.)(5,10,20,50, 1 )
+
+- la maquina puede o no tener cambio, si no tiene te avisa(monedas te las devuelve y lo billetes te lo escupe).
+
+- Solo devuelve monedas.
+
+- revisar que no se pueda meter valores negativos.
+
+
+- Se puede abrir la maquina(????). reponer la cantidad de productos, dinero, dinero maquina, aviso de que no hay stock de productos.
+
+
+MOVILES
+
+
+
+- primero menu: opcion de nueva partida, puntuacion, salir
+- opcion nueva partida -> seleccionar dificultad(facil, media, dificil)-> introducir nombre-> entra en partida y empieza a contar un tiempo.
+
+boton de comprbar resultado, rendirse
+
+
+
+
+- cuando pinchas en puntuaciones (facil, medio, dificil)
+
+- sudoku, tabla 9x9
+
+- 
+
+
+
+Dificultades:
+facil: 
+- tablero con muchos mumeros rellenados
+- rojos para los errores en las filas si no esta ese numero.(asi no esperas al final)
+- Pistas, infinitas, registrar el numero de pistas.
+
+Medio: lo mismo que fácil pero sin pistas.
+- tablero con muchos números rellenados
+- rojos para los errores en las filas si no esta ese numero.(asi no esperas al final)
+
+Dificil: lo mismo que fácil pero sin pistas, y autocorrector
+- tablero con muchos números rellenados
