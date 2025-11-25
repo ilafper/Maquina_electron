@@ -20,6 +20,9 @@ async function connectToMongo() {
   }
 }
 
+
+
+
 app.on('ready', async () => {
   await connectToMongo();
   // Código para crear la ventana de la aplicación
