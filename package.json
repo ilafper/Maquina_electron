@@ -1,15 +1,18 @@
 {
-  "dependencies": {
-    "electron": "^39.2.3",
-    "mongodb": "^7.0.0"
-  },
   "name": "maquina_electron",
   "version": "1.0.0",
   "description": "",
-  "main": "conexion.js",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ivan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "electron": "^39.2.3",
+    "mongodb": "^7.0.0"
+  }
 }
