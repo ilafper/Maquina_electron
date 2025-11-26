@@ -43,7 +43,7 @@ class ProductoManager {
                 `;
             }
         } catch (error) {
-            console.error('❌ Error en loadProductos:', error);
+            console.error('Error en loadProductos:', error);
             this.showError(`Error de conexión: ${error.message}`);
         }
     }
@@ -57,16 +57,12 @@ class ProductoManager {
         }
 
         productosList.innerHTML = productos.map(producto => `
-            <div class="producto-card" data-id="${producto._id}">
-                <div class="producto-info">
-                    <h3>${producto.nombreProducto || 'Sin nombre'}</h3>
-                    <p><strong>Precio:</strong> $${producto.precio}</p>
-                    <p><strong>Stock:</strong> ${producto.cantidad}</p>
+            <div class="producto" data-id="${producto._id}">
+                <div class="imagen">
+                     <img src="../src/${producto.src}" alt="">
                 </div>
-                <div class="producto-actions">
-                    <button class="btn-delete" onclick="productoManager.deleteProducto('${producto._id}')">
-                        Eliminar
-                    </button>
+                <div class="producto-info">
+                    <h3>${producto.nombreProducto}</h3>
                 </div>
             </div>
         `).join('');
@@ -78,21 +74,24 @@ class ProductoManager {
         
         if (form) {
             form.addEventListener('submit', (e) => this.handleSubmit(e));
-            console.log('✅ Event listener del formulario configurado');
+            console.log(' Event listener del formulario configurado');
         }
         
         if (refreshBtn) {
             refreshBtn.addEventListener('click', () => this.loadProductos());
-            console.log('✅ Event listener del botón actualizar configurado');
+            console.log('Event listener del botón actualizar configurado');
         }
     }
 
+
+
     async handleSubmit(e) {
+
         e.preventDefault();
         
-        console.log('🔄 Enviando formulario...');
+        console.log('Enviando formulario...');
         
-        // ✅ Validar que la API esté disponible
+        // Validar que la API esté disponible
         if (!window.electronAPI || !window.electronAPI.createProducto) {
             this.showError('La API de Electron no está disponible');
             return;
@@ -111,19 +110,19 @@ class ProductoManager {
             const result = await window.electronAPI.createProducto(productoData);
 
             if (result.success) {
-                this.showMessage('✅ Producto creado exitosamente', 'success');
+                this.showMessage('Producto creado exitosamente', 'success');
                 document.getElementById('productoForm').reset();
                 await this.loadProductos();
             } else {
-                this.showMessage(`❌ Error: ${result.error}`, 'error');
+                this.showMessage(`Error: ${result.error}`, 'error');
             }
         } catch (error) {
-            this.showMessage(`❌ Error de conexión: ${error.message}`, 'error');
+            this.showMessage(`Error de conexión: ${error.message}`, 'error');
         }
     }
 
     async deleteProducto(productoId) {
-        console.log('🔄 Eliminando producto:', productoId);
+        console.log('Eliminando producto:', productoId);
         
         if (!window.electronAPI || !window.electronAPI.deleteProducto) {
             this.showError('La API de Electron no está disponible');
@@ -135,19 +134,19 @@ class ProductoManager {
                 const result = await window.electronAPI.deleteProducto(productoId);
                 
                 if (result.success) {
-                    this.showMessage('✅ Producto eliminado exitosamente', 'success');
+                    this.showMessage('Producto eliminado exitosamente', 'success');
                     await this.loadProductos();
                 } else {
-                    this.showMessage(`❌ Error: ${result.error}`, 'error');
+                    this.showMessage(`Error: ${result.error}`, 'error');
                 }
             } catch (error) {
-                this.showMessage(`❌ Error de conexión: ${error.message}`, 'error');
+                this.showMessage(`Error de conexión: ${error.message}`, 'error');
             }
         }
     }
 
     showCriticalError(message) {
-        console.error('❌ Error crítico:', message);
+        console.error('Error crítico:', message);
         document.body.innerHTML = `
             <div style="padding: 20px; font-family: Arial, sans-serif; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; margin: 20px;">
                 <h1 style="color: #721c24;">❌ Error Crítico</h1>
@@ -168,11 +167,11 @@ class ProductoManager {
                 </ul>
                 <p><strong>Configuración requerida en main.js:</strong></p>
                 <pre style="background: #f1f1f1; padding: 10px; border-radius: 3px;">
-webPreferences: {
-  nodeIntegration: false,
-  contextIsolation: true,
-  preload: path.join(__dirname, 'preload.js')
-}</pre>
+                webPreferences: {
+                nodeIntegration: false,
+                contextIsolation: true,
+                preload: path.join(__dirname, 'preload.js')
+                }</pre>
             </div>
         `;
     }

@@ -1,0 +1,46 @@
+
+.maquina{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.productos{
+    width: 50%;
+}
+
+
+.productosList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: brown;
+}
+
+.producto{
+    width: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto img{
+    width: 70px;
+}
+
+.producto-info{
+    text-align: center
+}
+
+.imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.derecha{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}

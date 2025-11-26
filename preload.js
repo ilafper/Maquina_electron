@@ -13,24 +13,27 @@ try {
   // Exponer API de forma segura
   contextBridge.exposeInMainWorld('electronAPI', {
     getProductos: () => {
-      //console.log('🔄 Preload: Llamando a getProductos...');
+      //console.log('Preload: Llamando a getProductos...');
       return ipcRenderer.invoke('productos:getAll');
     },
+    
     createProducto: (productoData) => {
-      //console.log('🔄 Preload: Llamando a createProducto...', productoData);
+      //console.log('Preload: Llamando a createProducto...', productoData);
       return ipcRenderer.invoke('productos:create', productoData);
     },
+
     updateProducto: (id, updateData) => {
-      //console.log('🔄 Preload: Llamando a updateProducto...', id);
+      //console.log('Preload: Llamando a updateProducto...', id);
       return ipcRenderer.invoke('productos:update', id, updateData);
     },
+
     deleteProducto: (id) => {
-      //console.log('🔄 Preload: Llamando a deleteProducto...', id);
+      //console.log('Preload: Llamando a deleteProducto...', id);
       return ipcRenderer.invoke('productos:delete', id);
     }
   });
 
-  console.log('✅ electronAPI expuesta correctamente al mundo del renderer');
+  console.log('electronAPI expuesta correctamente al mundo del renderer');
   console.log('🔍 electronAPI methods:', Object.keys({
     getProductos: () => {},
     createProducto: () => {},
