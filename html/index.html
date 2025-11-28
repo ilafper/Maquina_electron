@@ -15,31 +15,38 @@
             <div id="productosList" class="lista_products"></div>
         </div>
         <div class="derecha">
-            <div class="cuadromensaje">MENSAJE</div>
+            <div class="cuadromensaje"></div>
 
-            <div class="botnes">
+            <div class="botones">
                 <div class="buttons-grid">
-                    <button class="btn letter-btn" data-value="A">A</button>
-                    <button class="btn letter-btn" data-value="B">B</button>
-                    <button class="btn letter-btn" data-value="C">C</button>
-                    <button class="btn letter-btn" data-value="D">D</button>
+                    <button class="teclaMaquina" data-value="A">A</button>
+                    <button class="teclaMaquina" data-value="B">B</button>
+                    <button class="teclaMaquina" data-value="C">C</button>
+                    <button class="teclaMaquina" data-value="D">D</button>
 
-                    <button class="btn number-btn" data-value="1">1</button>
-                    <button class="btn number-btn" data-value="2">2</button>
-                    <button class="btn number-btn" data-value="3">3</button>
-                    <button class="btn number-btn" data-value="4">4</button>
+                    <button class="teclaMaquina" data-value="1">1</button>
+                    <button class="teclaMaquina" data-value="2">2</button>
+                    <button class="teclaMaquina" data-value="3">3</button>
+                    <button class="teclaMaquina" data-value="4">4</button>
                 </div>
 
                 <div class="button-row">
-                    <button class="btn control-btn" id="accept-btn">ACEPTAR</button>
-                    <button class="btn delete-btn" id="delete-btn">BORRAR</button>
+                    <button class="acept" id="accept-btn">ACEPTAR</button>
+                    <button class="delete" id="delete-btn">BORRAR</button>
+                </div>
+
+                <div class="introduccion">
+                    <input class="dinero-introducido" type="number" min="0" placeholder="Introduce dinero">
+                    <button class="dinero-meter">Meter</button>
                 </div>
 
             </div>
+
         </div>
     </div>
 
-
+   
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="renderer.js"></script>
 </body>
 

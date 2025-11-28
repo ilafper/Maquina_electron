@@ -1,3 +1,4 @@
+
 class ProductoManager {
     constructor() {
         console.log('Iniciando ProductoManager...');
@@ -19,10 +20,9 @@ class ProductoManager {
     }
 
     async loadProductos() {
-        console.log('🔄 Cargando productos...');
-        
+        console.log('Cargando productos...');
         try {
-            // ✅ Doble validación
+            // Doble validación
             if (!window.electronAPI || !window.electronAPI.getProductos) {
                 throw new Error('La API de Electron no está disponible');
             }
@@ -31,10 +31,10 @@ class ProductoManager {
             const productosList = document.getElementById('productosList');
 
             if (result.success) {
-                console.log('✅ Productos cargados:', result.data.length);
+                console.log('Productos cargados:', result.data.length);
                 this.displayProductos(result.data);
             } else {
-                console.error('❌ Error cargando productos:', result.error);
+                console.error('Error cargando productos:', result.error);
                 productosList.innerHTML = `
                     <div class="error-message">
                         <p>Error: ${result.error}</p>
@@ -64,6 +64,7 @@ class ProductoManager {
                 <div class="producto-info">
                     <h3>${producto.nombreProducto}</h3>
                 </div>
+                <p class="valorr">${producto.valor}</p>
             </div>
         `).join('');
     }
@@ -218,12 +219,60 @@ if (window.electronAPI) {
     console.log('🚀 Inicializando ProductoManager...');
     window.productoManager = new ProductoManager();
 } else {
-    console.error('❌ NO se puede inicializar - electronAPI no disponible');
+    console.error('NO se puede inicializar - electronAPI no disponible');
     document.body.innerHTML = `
         <div style="padding: 20px; text-align: center;">
             <h1 style="color: red;">❌ Error de Configuración</h1>
             <p>No se pudo conectar con Electron. Por favor revisa la consola (F12) para más detalles.</p>
-            <button onclick="location.reload()" style="padding: 10px 20px; margin: 10px;">🔄 Recargar</button>
+            <button onclick="location.reload()" style="padding: 10px 20px; margin: 10px;">Recargar</button>
         </div>
     `;
 }
+
+
+//Funciones
+
+$(function() {
+    //input de meter dinero
+    $('.dineroMeter').on('click', function(){
+    const valorDinero= $('.DineroIntroducido').val();
+    if (valorDinero== '') {
+        console.log("intruce un valor");
+        
+    }else{
+
+    }
+    console.log(valorDinero);
+    $('.dinero-introducido').val('');
+    $('.cuadromensaje').html(valorDinero);
+    });
+    //bootn objeto maquina
+
+    $('.teclaMaquina').on('click', function(){
+        const ProductValor= $('.DineroIntroducido').val();
+        console.log(ProductValor);
+        
+    });
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
