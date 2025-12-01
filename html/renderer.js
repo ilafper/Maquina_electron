@@ -254,7 +254,7 @@ $(function () {
 
         let dinero_numero = parseInt(valorDinero);
 
-        // CORREGIR: Sumar el NÚMERO, no el string
+        
         dineroIntroducido += dinero_numero; 
 
         // Validar que sea un número válido
