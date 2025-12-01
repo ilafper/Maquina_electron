@@ -1,65 +1,93 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    color: #333;
 }
 
 h1 {
-    margin-top: 20px;
-    font-size: 32px;
-    color: #333;
-    text-shadow: 1px 1px 2px #aaa;
+    margin: 20px 0 30px 0;
+    font-size: 42px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .maquina {
-    width: 80%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1400px;
     display: flex;
     flex-direction: row;
-    border: 3px solid #222;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background: #ffffff;
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    margin-bottom: 30px;
 }
 
 .productos {
-    width: 60%;
-    padding: 20px;
-    background: #fafafa;
+    width: 65%;
+    padding: 30px;
+    background: white;
+    border-right: 3px dashed #dee2e6;
 }
 
 #productosList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
 }
 
 .producto {
-    background: linear-gradient(145deg, #e6e6e6, #ffffff);
-    border: 2px solid #444;
-    border-radius: 12px;
-    padding: 10px;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     cursor: pointer;
-    transition: .2s ease;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
 }
 
-.producto:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    border-color: #000;
+.producto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
+
+
 
 .producto img {
-    width: 55px;
-    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s;
+}
+
+.producto:hover img {
+    transform: scale(1.1);
 }
 
 .imagen {
@@ -67,125 +95,331 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
 }
 
 .producto-info {
     text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 5px;
-    color: #222;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+    color: #495057;
+    width: 100%;
+}
+
+.producto-codigo {
+    font-size: 16px;
+    font-weight: 700;
+    color: #4facfe;
+    margin-bottom: 5px;
+}
+
+.producto-nombre {
+    font-size: 13px;
+    color: #6c757d;
+    margin-bottom: 5px;
+    min-height: 32px;
+}
+
+.producto-precio {
+    font-size: 18px;
+    font-weight: 800;
+    color: #28a745;
+    background: #e8f5e9;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .derecha {
-    width: 40%;
-    background: #282c34;
+    width: 35%;
+    background: linear-gradient(180deg, #2d3748 0%, #1a202c 100%);
     color: white;
-    padding: 20px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .cuadromensaje {
-    width: 80%;
-    background: #111;
-    height: 40px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    font-size: 18px;
+    width: 90%;
+    background: linear-gradient(90deg, #1a202c, #2d3748);
+    height: 60px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-family: 'Courier New', monospace;
     text-align: center;
-    line-height: 40px;
-    letter-spacing: 2px;
-    border: 2px solid #444;
-    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.6);
+    line-height: 60px;
+    letter-spacing: 3px;
+    border: 2px solid #4a5568;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #68d391;
+    text-shadow: 0 0 10px rgba(104, 211, 145, 0.5);
+    overflow: hidden;
+    position: relative;
+}
+
+.cuadromensaje::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(96, 206, 138, 0.274), transparent);
+    /*animation: brillo 4s infinite;*/
+}
+
+@keyframes brillo {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.botones {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
 }
 
 .buttons-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 5px;
+    padding: 10px;
 }
 
-.teclaMaquina{
+.teclaMaquina {
+    width: 60px;
     padding: 10px;
     border: none;
-    border-radius: 3px;
     cursor: pointer;
     font-weight: bold;
     font-size: 14px;
-    background: #3a3f47;
-    color: white;
-    transition: .2s;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    color: black;
+    background-color: #ece9e9e1;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.teclaMaquina:hover {
-    background: #50565f;
-    transform: scale(1.05);
+.teclaMaquina:hover{
+    transform: scale(1.01);
+    transition: 0.5s;
+    color: white;
+    background-color: rgba(34, 28, 28, 0.795);
+    box-shadow: 3px 3px 3px rgb(255, 252, 252);
 }
+
+
+.button-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+
+
 
 .acept, .delete {
+    flex: 1;
     color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 16px;
     border: none;
-    border-radius: 2px;
     cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2),
+                0 8px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
 }
+
 .acept {
-    background-color: #2e703d;
+    background: linear-gradient(145deg, #38a169, #2f855a);
+}
+
+.acept::before, .delete::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
 .delete{
-    background-color:  #910806;
+    background-color: rgba(255, 0, 0, 0.774);
+    color: white;
 }
 
-
-.acept:hover {
-    transform: scale(1.05);
-    background-color: #2e703d;
+.botones h3 {
+    color: #e2e8f0;
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+    padding-bottom: 8px;
 }
 
-
-.delete:hover {
-    transform: scale(1.05);
-    background-color: #910806;
+.botones h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4facfe, transparent);
 }
 
-.introduccion {
-    margin-top: 20px;
+.monedas, .billetes {
+    padding: 20px;
+    background: linear-gradient(145deg, #2d3748, #1a202c);
+    border: 2px solid #4a5568;
+    border-radius: 15px;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    width: 80%;
     justify-content: center;
+    width: 90%;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5),
+                0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.introduccion input {
-    padding: 8px;
-    border: 1px solid #444;
-    border-radius: 4px;
-    background-color: #282c34;
+.moneda, .billete {
+    min-width: 90px;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 12px 8px;
     color: white;
-    width: 60%;
-    font-size: 14px;
-}
-
-
-.introduccion button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
     font-size: 14px;
-    background: #2e703d;
-    color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    transition: .2s;
+    position: relative;
+    overflow: hidden;
 }
 
-.introduccion button:hover {
-    transform: scale(1.05);
+.moneda {
+    background: linear-gradient(145deg, #d69e2e, #b7791f);
+    border-color: #d69e2e;
+}
+
+.billete {
+    background: linear-gradient(145deg, #4299e1, #3182ce);
+    border-color: #4299e1;
+}
+
+.moneda::before, .billete::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s;
+}
+
+.moneda:hover, .billete:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.moneda:hover::before, .billete:hover::before {
+    left: 100%;
+}
+
+.moneda:active, .billete:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Indicadores de dinero */
+.dinero-indicador {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #68d391;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #68d391;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .maquina {
+        flex-direction: column;
+        width: 95%;
+    }
+    
+    .productos, .derecha {
+        width: 100%;
+    }
+    
+    .productos {
+        border-right: none;
+        border-bottom: 3px dashed #dee2e6;
+    }
+}
+
+@media (max-width: 768px) {
+    #productosList {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 15px;
+    }
+    
+    .buttons-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    
+    .moneda, .billete {
+        min-width: 80px;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+}
+
+/* Animaciones de transacción */
+@keyframes productoSeleccionado {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.producto.seleccionado {
+    animation: productoSeleccionado 0.5s ease;
+}
+
+@keyframes dineroInsertado {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.dinero-insertado {
+    animation: dineroInsertado 0.3s ease;
 }

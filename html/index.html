@@ -32,15 +32,35 @@
                     <button class="teclaMaquina" data-value="4">4</button>
                 </div>
 
+                
                 <div class="button-row">
                     <button class="acept" id="accept-btn">ACEPTAR</button>
                     <button class="delete" id="delete-btn">BORRAR</button>
                 </div>
 
-                <div class="introduccion">
-                    <input class="dineroIntroducido" type="number" min="0" placeholder="Introduce dinero">
-                    <button class="dineroMeter">Meter</button>
+                <h3>Monedas</h3>
+                <div class="monedas">
+
+                    <button class="moneda dineroMeter" data-value="0.5">5 cént.</button>
+                    <button class="moneda dineroMeter" data-value="0.10">10 cént.</button>
+                    <button class="moneda dineroMeter" data-value="0.20">20 cént.</button>
+                    <button class="moneda dineroMeter" data-value="0.50">50 cént.</button>
+                    <button class="moneda dineroMeter" data-value="1">1€</button>
+                    <button class="moneda dineroMeter" data-value="2">2€</button>
+
                 </div>
+
+                <h3>Billetes</h3>
+                <div class="billetes">
+
+                    <button class="billete dineroMeter" data-value="5">5 €</button>
+                    <button class="billete dineroMeter" data-value="10">10 €</button>
+                    <button class="billete dineroMeter" data-value="20">20 €</button>
+                    
+                </div>
+
+
+                
 
             </div>
 
@@ -50,6 +70,7 @@
    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="renderer.js"></script>
+
 </body>
 
 </html>

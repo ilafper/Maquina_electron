@@ -252,8 +252,8 @@ $(function () {
             return;
         }
 
-        let dinero_numero = parseInt(valorDinero);
-
+        let dinero_numero = parseFloat(valorDinero);
+        dinero_numero = parseFloat(dinero_numero.toFixed(2));
         
         dineroIntroducido += dinero_numero; 
 
@@ -273,9 +273,10 @@ $(function () {
 
 
         $('.cuadromensaje').html(dineroIntroducido + " €" );
+
     });
 
-    //bootn objeto maquina
+    //bootn producto maquina
     $('.teclaMaquina').on('click', function () {
 
         const valorTecla = $(this).data('value');
