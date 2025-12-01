@@ -127,6 +127,8 @@ h1 {
 }
 
 .acept, .delete {
+    color: white;
+    font-weight: bold;
     padding: 10px;
     border: none;
     border-radius: 2px;
