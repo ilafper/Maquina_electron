@@ -48,7 +48,7 @@ $(function () {
 
             }
 
-            console.log("lista productos normal:", contanierProductos.length);
+            //console.log("lista productos normal:", contanierProductos.length);
 
 
 
@@ -211,15 +211,12 @@ $(function () {
 
 
                  </div>`
-
-                contenedorProductos.append(targetaProductos);
+                
+                
+                
+                 contenedorProductos.append(targetaProductos);
 
             }
-
-            console.log(contenedorProductos.length);
-
-
-
 
         } catch (error) {
             console.error('Error:', error);
@@ -230,6 +227,80 @@ $(function () {
 
     cargarProductosAdmin();
 
+    $('.btnCancelar').on('click', function () {
+       
+        
+        $('.modalCrear').css('display', 'none');
+    });
+
+
+
+
+
+    //mostrar modal de crear
+    $('.craerProducto').on('click', function () {
+        console.log("sdfsdfs");
+        
+        $('.modalCrear').css('display', 'flex');
+
+    });
+
+
+
+
+
+    //crearProducto
+
+    $('.crearProducto').on('click', function () {
+        //console.log("sdfsdfs");
+        
+       let nuevoNombre= $('.nombreNuevo').val();
+
+       let nuevoValor= $('.nuevoValor').val();
+
+       let nuevoPrecio= $('.nuevoPrecio').val();
+
+       let nuevoCantidad= $('.nuevacantidad').val();
+
+       let imagenProduct="produc1.png";
+
+       
+        console.log(nuevoNombre,nuevoValor,nuevoPrecio,nuevoCantidad);
+        
+        if (nuevoNombre === '' || nuevoValor === '' || nuevoPrecio === '' || nuevoCantidad === '') {
+            console.log("Por favor, rellena todos los campos");
+            return;
+        }
+
+        let nuevoProducto= {
+            nombreProducto:nuevoNombre,
+            valor:nuevoValor,
+            precio:nuevoPrecio,
+            cantiad:nuevoCantidad,
+            src:imagenProduct
+        }
+        
+        console.log("A enviar:", nuevoProducto);
+        
+
+        fetch(`${api_ur}/crearproducto`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(nuevoProducto)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Éxito:', data);
+            $('.modalCrear').css('display', 'none');
+            cargarProductosAdmin();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    });
 
 
 });

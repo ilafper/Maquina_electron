@@ -19,11 +19,11 @@
 }
 
 .productoAdmin{
-    width: 300px;
+    width: 200px;
+    padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
 }
-
 
 .productoAdmin .imagenPrin{
     width: 100%;
@@ -42,7 +42,60 @@
     flex-direction: row;
     gap:10px;
     justify-content: center;
+
 }
+
+.botones img{
+    background-color: rgb(190, 188, 188);
+    width: 30px;
+    padding: 5px;
+}
+
+
+
+.modalCrear{
+    display: none;
+    border: 3px solid rgba(194, 185, 185, 0.788);
+    background-color: white;
+    width: 30%;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
+
+
+.modalCrear h1{
+    text-align: center;
+}
+
+
+.espacioBoton{
+    margin-top: 5%;
+    border: 1px solid black;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+}
+
+.campos{
+    display: flex;
+    flex-direction: column;
+}
+
+.campoRellenar{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
 
 
 

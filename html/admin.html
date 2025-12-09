@@ -11,18 +11,57 @@
     <h1>volver</h1>
     <a href="index.html">atras</a>
     
-    
-    
+    <button class="craerProducto">
+        Crear
+    </button>
     <section class="productos">
         <div class="lista_admin">
-            
+
         </div>
     </section>
 
-    <div class="botones">
-        <img src="" alt="">
-        <img src="../imagenes/basura.svg" alt="">
+
+    <div class="modalCrear">
+        <div class="">
+
+            <h1>Creacion Producto</h1>
+            <form class="campos">
+                
+                <div class="campoRellenar">
+                    <label for="">Nombre:</label>
+                    <input class="nombreNuevo" type="text">
+                </div>
+
+                <div class="campoRellenar">
+                    <label for="">Valor:</label>
+                    <input class="nuevoValor" type="text">
+                </div>
+
+                <div class="campoRellenar">
+                    <label for="">Precio:</label>
+                    <input class="nuevoPrecio" type="number">
+                </div>
+
+                <div class="campoRellenar">
+                    <label for="">Cantidad:</label>
+                    <input class="nuevacantidad" type="number">
+                </div>
+                
+            </form>
+
+            <div class="espacioBoton">
+                <button class="btnCancelar">Cancelar</button>
+                <button class="crearProducto">Guardar</button>
+            </div>
+            
+        </div>
     </div>
+
+
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="renderer.js"></script>
 
