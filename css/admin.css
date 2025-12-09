@@ -2,17 +2,11 @@
     margin: 0;
 }
 
-
 .productos{
-
     width: 100%;
-    
     display: flex;
     justify-content: center;
 }
-
-
-
 
 .lista_admin{
     width: 90%;

@@ -10,7 +10,6 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: false, 
       contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js')
     }
   });
 
@@ -24,36 +23,6 @@ function createWindow() {
     mainWindow.webContents.openDevTools();
   }
 }
-
-
-
-const apiService = require('./app/services/apiService');
-
-// IPC Handlers
-ipcMain.handle('productos:getAll', async () => {
-  console.log('todos los productos');
-  //console.log(apiService.getProductos);
-  return await apiService.getProductos();
-});
-
-ipcMain.handle('productos:create', async (event, productoData) => {
-  //console.log('crear', productoData);
-  return await apiService.createProducto(productoData);
-});
-
-ipcMain.handle('productos:update', async (event, id, updateData) => {
-  //console.log('IPC: Actualizando producto...', id);
-  return await apiService.updateProducto(id, updateData);
-});
-
-ipcMain.handle('productos:delete', async (event, id) => {
-  //console.log('IPC: Eliminando producto...', id);
-  return await apiService.deleteProducto(id);
-});
-
-
-
-
 
 app.whenReady().then(() => {
   //console.log(App lista - creando ventana...');

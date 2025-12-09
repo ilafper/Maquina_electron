@@ -1,10 +1,5 @@
-//const { api } = require("../app/services/apiService");
-
-
 
 let api_ur = 'https://api-maquina-electron.vercel.app/api';
-
-
 
 $(function () {
 
@@ -16,8 +11,6 @@ $(function () {
         $('.cuadromensaje').html('');
 
     });
-
-
     async function cargaProductosNormales() {
 
         try {
