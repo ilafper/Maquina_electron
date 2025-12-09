@@ -105,7 +105,7 @@ class ProductoManager {
             descripcion: document.getElementById('descripcion').value
         };
 
-        console.log('📦 Datos del producto:', productoData);
+        console.log('Datos del producto:', productoData);
 
         try {
             const result = await window.electronAPI.createProducto(productoData);
@@ -122,98 +122,17 @@ class ProductoManager {
         }
     }
 
-    async deleteProducto(productoId) {
-        console.log('Eliminando producto:', productoId);
+    
 
-        if (!window.electronAPI || !window.electronAPI.deleteProducto) {
-            this.showError('La API de Electron no está disponible');
-            return;
-        }
-
-        if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
-            try {
-                const result = await window.electronAPI.deleteProducto(productoId);
-
-                if (result.success) {
-                    this.showMessage('Producto eliminado exitosamente', 'success');
-                    await this.loadProductos();
-                } else {
-                    this.showMessage(`Error: ${result.error}`, 'error');
-                }
-            } catch (error) {
-                this.showMessage(`Error de conexión: ${error.message}`, 'error');
-            }
-        }
-    }
-
-    showCriticalError(message) {
-        console.error('Error crítico:', message);
-        document.body.innerHTML = `
-            <div style="padding: 20px; font-family: Arial, sans-serif; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; margin: 20px;">
-                <h1 style="color: #721c24;">❌ Error Crítico</h1>
-                <p><strong>${message}</strong></p>
-                <h3>Posibles causas:</h3>
-                <ul>
-                    <li>• El archivo preload.js no se está cargando</li>
-                    <li>• contextIsolation no está habilitado</li>
-                    <li>• nodeIntegration está habilitado (debe ser false)</li>
-                    <li>• Hay un error en la configuración de Electron</li>
-                </ul>
-                <h3>Soluciones:</h3>
-                <ul>
-                    <li>• Verifica la consola de Electron (F12)</li>
-                    <li>• Asegúrate de que preload.js esté en la raíz</li>
-                    <li>• Recarga la aplicación (Ctrl+R)</li>
-                    <li>• Revisa la configuración de webPreferences en main.js</li>
-                </ul>
-                <p><strong>Configuración requerida en main.js:</strong></p>
-                <pre style="background: #f1f1f1; padding: 10px; border-radius: 3px;">
-                webPreferences: {
-                nodeIntegration: false,
-                contextIsolation: true,
-                preload: path.join(__dirname, 'preload.js')
-                }</pre>
-            </div>
-        `;
-    }
-
-    showError(message) {
-        const productosList = document.getElementById('productosList');
-        if (productosList) {
-            productosList.innerHTML = `
-                <div class="error-message">
-                    <p>${message}</p>
-                </div>
-            `;
-        }
-    }
-
-    showMessage(message, type) {
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${type}`;
-        messageDiv.textContent = message;
-        messageDiv.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 5px;
-            color: white;
-            z-index: 1000;
-            ${type === 'success' ? 'background: #28a745;' : 'background: #dc3545;'}
-        `;
-        document.body.appendChild(messageDiv);
-
-        setTimeout(() => {
-            messageDiv.remove();
-        }, 3000);
-    }
 }
 
 
 //console.log('DOM cargado, verificando electronAPI...');
 //console.log('window.electronAPI disponible:', !!window.electronAPI);
 //console.log('Métodos disponibles:', window.electronAPI ? Object.keys(window.electronAPI) : 'NO DISPONIBLE');
+
+
+
 
 if (window.electronAPI) {
     //console.log('Inicializando ProductoManager...');
@@ -230,69 +149,84 @@ if (window.electronAPI) {
 }
 
 
-//Funciones
-
 $(function () {
 
     let dineroIntroducido = 0;
-    let cambio;
-    $('.delete').on('click', function () {
 
+    let cambio;
+    
+    $('.delete').on('click', function () {
         $('.cuadromensaje').html('');
+
     });
 
     //input de meter dinero
+
     $('.dineroMeter').on('click', function () {
         // valor
-        const valorDinero = $('.dineroIntroducido').val();
+        const valorDinero = $(this).data('value');
+        console.log(valorDinero);
+        
         $('.dineroIntroducido').val('');
-
-        if (!valorDinero || valorDinero.trim() === '') {
+        console.log(valorDinero);
+        
+        if (!valorDinero) {
             console.log("Introduce un valor");
             return;
         }
-
+        //aaaasdasdasd
         let dinero_numero = parseFloat(valorDinero);
-        dinero_numero = parseFloat(dinero_numero.toFixed(2));
+        dinero_numero = parseFloat(dinero_numero.toFixed(3));
         
         dineroIntroducido += dinero_numero; 
+
+
 
         // Validar que sea un número válido
         if (isNaN(dinero_numero)) {
             console.log("Introduce un número válido");
             return;
         }
-
+        
         if (dinero_numero <= 0) {
             console.log("Introduce una cantidad positiva");
             return;
         }
 
         console.log('ultimo introducido:', dinero_numero);
+        //acuerdate del 0 ese 
+
+        dineroIntroducido.toFixed(2);
         console.log('Dinero Metido:', dineroIntroducido);
+        console.log("sdfsdfsd", dineroIntroducido);
+        
 
-
+        
         $('.cuadromensaje').html(dineroIntroducido + " €" );
 
     });
 
     //bootn producto maquina
     $('.teclaMaquina').on('click', function () {
-
         const valorTecla = $(this).data('value');
         console.log(valorTecla);
-
         $('.cuadromensaje').html($('.cuadromensaje').html() + valorTecla);
-
     });
 
     $('.acept').on('click', function () {
         const valorBuscar = $('.cuadromensaje').html().trim();
+        if (valorBuscar == '') {
+            console.log("introduce algo a buscar");
+            return;
+        }else{
+            
+        }
+        
         console.log('Buscando:', valorBuscar);
 
         console.log(lista_productos);
 
-        //console.log(typeof valorparseado);
+        
         for (let i = 0; i < lista_productos.length; i++) {
 
             if (valorBuscar == lista_productos[i].valor) {
@@ -303,6 +237,8 @@ $(function () {
                 console.log(lista_productos[i].precio);
                 $('.cuadromensaje').html(lista_productos[i].precio + " €");
 
+
+                                
                 console.log("metiste: ", dineroIntroducido);
                 console.log("precio Producto", lista_productos[i].precio);
 
