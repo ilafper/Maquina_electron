@@ -26,6 +26,7 @@ function createWindow() {
 }
 
 
+
 const apiService = require('./app/services/apiService');
 
 // IPC Handlers
@@ -50,8 +51,12 @@ ipcMain.handle('productos:delete', async (event, id) => {
   return await apiService.deleteProducto(id);
 });
 
+
+
+
+
 app.whenReady().then(() => {
-  //console.log('🚀 App lista - creando ventana...');
+  //console.log(App lista - creando ventana...');
   createWindow();
   
   app.on('activate', function () {

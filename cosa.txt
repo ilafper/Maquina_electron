@@ -1,0 +1,56 @@
+//Modo admin
+
+    // let api_ur = 'https://vercel.com/ivans-projects-644f3ee8/api-maquina-electron/api';
+
+    // //console.log("adasdasdasdasdasdasda",api_ur);
+
+    // async function cargarProductosAdmin() {
+
+    //     try {
+
+    //         const response = await fetch(`${api_ur}/productos`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             }
+    //         });
+
+
+    //         if (!response.ok) {
+    //             throw new Error(`Error en la respuesta: ${response.status} ${response.statusText}`);
+    //         }
+
+    //         let contenedorProductos = $('.lista_admin');
+    //         contenedorProductos.empty();
+    //         const productos = await response.json();
+
+    //         for (let cada_producto of productos) {
+
+    //             let targetaProductos= `
+    //             <div class="producto" data-id="${cada_producto._id}">
+    //                 <div class="imagen">
+    //                     <img src="../src/${cada_producto.src}" alt="">
+    //                 </div>
+    //                 <div class="producto-info">
+    //                     <h3>${cada_producto.nombreProducto}</h3>
+    //                 </div>
+    //                 <p class="valorr">${cada_producto.valor}</p>
+    //             </div>`
+
+    //             contenedorProductos.append(targetaProductos);
+
+    //         }
+
+    //         console.log(contenedorProductos.length);
+
+
+
+
+    //     } catch (error) {
+    //         console.error('Error:', error);
+
+    //     }
+
+    // }
+
+    //cargarProductosAdmin();
