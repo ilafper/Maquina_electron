@@ -191,9 +191,10 @@ $(function () {
                 }
             });
 
-            console.log("soy tonto");
-
+            //console.log("soy tonto");
+            
             let contenedorProductos = $('.lista_admin');
+
             contenedorProductos.empty();
             const productos = await response.json();
 
@@ -201,15 +202,19 @@ $(function () {
 
                 let targetaProductos = `
                  <div class="productoAdmin" data-id="${cada_producto._id}">
-                    <div class="imagen">
+                    <div class="imagenPrin">
                          <img src="../src/${cada_producto.src}" alt="">
                     </div>
+                    
                     <div class="productoInformacion">
                         <h3>${cada_producto.nombreProducto}</h3>
                     </div>
                     <p class="valorr">${cada_producto.valor}</p>
 
-                    
+                    <div class="botones">
+                        <img src="../imagenes/editar.svg" alt="">
+                        <img src="../imagenes/basura.svg" alt="">
+                    </div>
 
 
                  </div>`

@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+}
+
+
+.productos{
+
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.lista_admin{
+    width: 90%;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.productoAdmin{
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.productoAdmin .imagenPrin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.productoAdmin .imagenPrin img {
+    width: 100px;
+
+}
+
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    justify-content: center;
+}
+
+
+
+
+
+
