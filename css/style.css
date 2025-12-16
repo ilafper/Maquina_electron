@@ -1,4 +1,5 @@
 body {
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: white;
     margin: 0;
@@ -9,21 +10,21 @@ body {
     align-items: center;
     justify-content: center;
     color: #333;
+
 }
 
 h1 {
     margin: 20px 0 30px 0;
     font-size: 42px;
     color: rgb(0, 0, 0);
-    
     font-weight: 800;
     letter-spacing: 1px;
 }
 
 .maquina {
     width: 90%;
-    max-width: 1400px;
     display: flex;
+    height: 50%;
     flex-direction: row;
     border: none;
     border-radius: 20px;
@@ -33,11 +34,12 @@ h1 {
     margin-bottom: 30px;
 }
 
+
+
 .productos {
     width: 65%;
     padding: 30px;
     background: white;
-   
 }
 
 #productosList {
@@ -45,12 +47,12 @@ h1 {
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-
 }
 
 .producto {
-    width: 25%;
+    width: 12%;
     background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    height: 150px;
     border: 2px solid #e9ecef;
     border-radius: 5px;
     padding: 15px;
@@ -58,13 +60,16 @@ h1 {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
+
 }
 
-
+.valorr{
+    display: flex;
+    margin: 0;
+    text-align: center;
+    margin-top: auto;
+}
 
 .producto img {
     width: 70px;
@@ -72,29 +77,18 @@ h1 {
     object-fit: contain;
 }
 
-
 .imagen {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
 }
 
 .producto-info {
     text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 8px;
+    font-size: 10px;
     color: #495057;
     width: 100%;
-}
-
-.producto-codigo {
-    font-size: 16px;
-    font-weight: 700;
-    color: #4facfe;
-    margin-bottom: 5px;
 }
 
 .producto-nombre {
@@ -137,8 +131,7 @@ h1 {
     line-height: 60px;
     letter-spacing: 3px;
     border: 2px solid #4a5568;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5),
-                0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
     color: #68d391;
     text-shadow: 0 0 10px rgba(104, 211, 145, 0.5);
     overflow: hidden;
@@ -226,10 +219,7 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2),
-                0 8px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .acept {

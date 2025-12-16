@@ -30,19 +30,21 @@ $(function () {
             const productos = await response.json();
             lista_productos=productos
             console.log(lista_productos);
+
             
             for (let cada_producto of productos) {
 
                 let targetaProductos = `
-                 <div class="producto" data-id="${cada_producto._id}">
-                     <div class="imagen">
-                         <img src="../src/${cada_producto.src}" alt="">
-                     </div>
-                     <div class="producto-info">
+                <div class="producto" data-id="${cada_producto._id}">
+                    <div class="imagen">
+                        <img src="../src/${cada_producto.src}" alt="">
+                    </div>
+                    <div class="producto-info">
                         <h3>${cada_producto.nombreProducto}</h3>
-                     </div>
-                     <p class="valorr">${cada_producto.valor}</p>
-                 </div>`
+                    </div>
+                    
+                    <p class="valorr">${cada_producto.valor}</p>
+                </div>`
 
                 contanierProductos.append(targetaProductos);
 
@@ -80,7 +82,7 @@ $(function () {
 
 
 
-        //aaaasdasdasd
+        
         let dinero_numero = parseFloat(valorDinero);
         dinero_numero = parseFloat(dinero_numero.toFixed(3));
         dineroIntroducido.toFixed(3);
@@ -94,8 +96,6 @@ $(function () {
             return;
         }
 
-
-
         if (dinero_numero <= 0) {
             console.log("Introduce una cantidad positiva");
             return;
@@ -107,14 +107,11 @@ $(function () {
         //dineroIntroducido.toFixed(2);
         console.log('Dinero Metido:', dineroIntroducido.toFixed(2));
         
-
-
-
         $('.cuadromensaje').html(dineroIntroducido.toFixed(2) + " €");
 
     });
 
-    //bootn producto maquina
+    //boton producto maquina
     $('.teclaMaquina').on('click', function () {
         const valorTecla = $(this).data('value');
         console.log(valorTecla);
@@ -126,46 +123,53 @@ $(function () {
         if (valorBuscar == '') {
             console.log("introduce algo a buscar");
             return;
-        } else {
-
         }
 
         console.log('Buscando:', valorBuscar);
-
         console.log(lista_productos);
+        
+        let encontrado = false;
 
         for (let i = 0; i < lista_productos.length; i++) {
-
             if (valorBuscar == lista_productos[i].valor) {
                 console.log("encontrado");
-
-                //console.log(lista_productos[i]);
-
-                console.log(lista_productos[i].precio);
                 $('.cuadromensaje').html(lista_productos[i].precio + " €");
-
-
 
                 console.log("metiste: ", dineroIntroducido);
                 console.log("precio Producto", lista_productos[i].precio);
 
                 if (dineroIntroducido == 0) {
-                    console.log("por favor mete una cantidad mayor a 0")
-
-                } else if (dineroIntroducido < lista_productos[i].precio && dineroIntroducido > 0) {
+                    console.log("por favor mete una cantidad mayor a 0");
+                } else if (dineroIntroducido < lista_productos[i].precio) {
                     console.log("mete mas dinero");
-
-                } else if (dineroIntroducido > lista_productos[i].precio) {
-                    cambio = dineroIntroducido - lista_productos[i].precio;
-                    console.log("hfhfhffh");
-                    $('.cuadromensaje').html("Cambio " + cambio + "€");
+                    $('.cuadromensaje').html("mete mas dinero");
+                } else if (dineroIntroducido >= lista_productos[i].precio) {
+                    let cambio = dineroIntroducido - lista_productos[i].precio;
+                    $('.cuadromensaje').html(cambio.toFixed(2) + "€");
                     console.log(cambio);
 
+                    setTimeout(() => {
+                        cambio = 0;
+                        dineroIntroducido = 0;
+                        $('.cuadromensaje').html('0 €');
+                        console.log(cambio);
+                    }, 3000);
                 }
 
+                encontrado = true;
+                break;
             }
         }
+
+        if (!encontrado) {
+            $('.cuadromensaje').html('no encontrado');
+            setTimeout(() => {
+                        $('.cuadromensaje').html('');
+                        
+                    }, 2000);
+        }
     });
+
 
 
 
@@ -304,19 +308,56 @@ $(function () {
     });
 
 
-    
+
     /*borrar modal*/
     $(document).on('click', '.basuraTrash', function () {
         console.log("basura basura");
         let idEliminarProducto=$(this).data('id');
         console.log(idEliminarProducto);
+        $('.modalEliminar').data('id', idEliminarProducto);
+        $('.idProduct').html(idEliminarProducto)
         $('.modalEliminar').css('display', 'flex');
+        
     });
+
 
     $(document).on('click', '.cancelarEliminar', function () {
         console.log("basura cancelar");
         $('.modalEliminar').css('display', 'none');
     });
+
+
+    /*aceptar la eliminacion*/
+    $(document).on('click', '.confirmarEliminar', function () {
+        console.log("confirm confirm");
+        
+        let idEliminarProducto = $('.modalEliminar').data('id');
+        
+        console.log("id a eliminar:", idEliminarProducto);
+        
+
+        fetch(`${api_ur}/delete/${idEliminarProducto}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        .then(response => response.json())
+        
+        .then(data => {
+            console.log('Éxito:', data);
+            $('.modalEliminar').css('display', 'none');
+
+            cargarProductosAdmin();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+       
+    });
+
+
 
 
 

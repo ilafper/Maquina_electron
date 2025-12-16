@@ -84,10 +84,13 @@
 }
 
 .botones img{
-    background-color: #c4c4c4;
     width: 30px;
     padding: 5px;
     border-radius: 4px;
+}
+.botones button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 /* MODAL */
