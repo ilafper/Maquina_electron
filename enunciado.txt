@@ -24,8 +24,6 @@ MOVILES
 boton de comprbar resultado, rendirse
 
 
-
-
 - cuando pinchas en puntuaciones (facil, medio, dificil)
 
 - sudoku, tabla 9x9

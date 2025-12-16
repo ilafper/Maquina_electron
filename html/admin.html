@@ -7,65 +7,100 @@
      <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-    
-    <h1>volver</h1>
-    <a href="index.html">atras</a>
-    
-    <button class="craerProducto">
-        Crear
-    </button>
-    <section class="productos">
-        <div class="lista_admin">
 
+    
+    <header class="admin-header">
+        <h1>MODO ADMIN</h1>
+        <nav>
+            <a class="btn-volver" href="index.html">Atrás</a>
+        </nav>
+    </header>
+
+
+    
+    <main class="admin-container">
+
+        
+        <div class="crear-area">
+            <button class="btn-crear craerProducto">Crear Producto</button>
         </div>
-    </section>
 
-
-    <div class="modalCrear">
-        <div class="">
-
-            <h1>Creacion Producto</h1>
-            <form class="campos">
+        
+        <section class="productos">
+            <div class="lista_admin">
                 
+            </div>
+        </section>
+
+    </main>
+
+
+   
+    <div class="modalCrear" id="modalCrear">
+        <div class="modal-content">
+
+            <h2>Crear Producto</h2>
+
+            <form class="campos">
+
                 <div class="campoRellenar">
-                    <label for="">Nombre:</label>
+                    <label>Nombre:</label>
                     <input class="nombreNuevo" type="text">
                 </div>
 
                 <div class="campoRellenar">
-                    <label for="">Valor:</label>
+                    <label>Valor:</label>
                     <input class="nuevoValor" type="text">
                 </div>
 
                 <div class="campoRellenar">
-                    <label for="">Precio:</label>
+                    <label>Precio:</label>
                     <input class="nuevoPrecio" type="number">
                 </div>
 
                 <div class="campoRellenar">
-                    <label for="">Cantidad:</label>
+                    <label>Cantidad:</label>
                     <input class="nuevacantidad" type="number">
                 </div>
-                
+
             </form>
 
             <div class="espacioBoton">
                 <button class="btnCancelar">Cancelar</button>
                 <button class="crearProducto">Guardar</button>
             </div>
-            
+
         </div>
     </div>
 
 
+    <button class="botonEliminar"></button>
+   
+    <div class="modalEliminar" id="modalEliminar">
+
+        <div class="modal-content-eliminar">
+
+            <h2>Eliminar Producto</h2>
+
+            <p>¿Seguro que deseas eliminar este producto?</p>
+
+            <div class="botonesEliminar">
+                <button class="cancelarEliminar">Cancelar</button>
+                <button class="confirmarEliminar">Eliminar</button>
+            </div>
+
+        </div>
+
+    </div>
 
 
 
-
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="renderer.js"></script>
 
 </body>
+
 
 
 

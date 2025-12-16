@@ -1,7 +1,48 @@
 *{
     margin: 0;
+    box-sizing: border-box;
 }
 
+/* HEADER */
+.admin-header{
+    width: 100%;
+    padding: 15px;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-volver{
+    text-decoration: none;
+    background: #ddd;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: black;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.admin-container{
+    padding: 20px;
+}
+
+.crear-area{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-crear{
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* LISTA PRODUCTOS */
 .productos{
     width: 100%;
     display: flex;
@@ -11,16 +52,16 @@
 .lista_admin{
     width: 90%;
     border: 1px solid black;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
 }
 
 .productoAdmin{
     width: 200px;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -31,74 +72,74 @@
     justify-content: center;
 }
 
-.productoAdmin .imagenPrin img {
+.productoAdmin img{
     width: 100px;
-
 }
 
-
 .botones{
+    margin-top: 10px;
     display: flex;
-    flex-direction: row;
-    gap:10px;
+    gap: 10px;
     justify-content: center;
-
 }
 
 .botones img{
-    background-color: rgb(190, 188, 188);
+    background-color: #c4c4c4;
     width: 30px;
     padding: 5px;
+    border-radius: 4px;
 }
 
-
-
+/* MODAL */
 .modalCrear{
     display: none;
-    border: 3px solid rgba(194, 185, 185, 0.788);
     background-color: white;
-    width: 30%;
-    padding: 20px;
-    position: absolute;
+    width: 35%;
+    padding: 25px;
+    position: fixed;
     top: 50%;
-    left: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(194,185,185,0.8);
+    z-index: 20;
 }
 
-
-
-.modalCrear h1{
-    text-align: center;
-}
-
-
-.espacioBoton{
-    margin-top: 5%;
-    border: 1px solid black;
-    display: flex;
-    align-items: end;
-    justify-content: space-evenly;
-    flex-direction: row;
-
+.modal-content{
+    width: 100%;
 }
 
 .campos{
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 .campoRellenar{
     display: flex;
     flex-direction: column;
+    gap: 5px;
+}
+
+.espacioBoton{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 
 
+/*modal eliminar*/
 
 
-
-
-
-
-
-
-
+.modalEliminar{
+    display: none;
+    background-color: white;
+    width: 35%;
+    padding: 25px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(194,185,185,0.8);
+    z-index: 20;
+}

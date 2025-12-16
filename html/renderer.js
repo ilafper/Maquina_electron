@@ -134,7 +134,6 @@ $(function () {
 
         console.log(lista_productos);
 
-
         for (let i = 0; i < lista_productos.length; i++) {
 
             if (valorBuscar == lista_productos[i].valor) {
@@ -164,11 +163,11 @@ $(function () {
 
                 }
 
-
-
             }
         }
     });
+
+
 
     //Modo admin
     console.log("adasdasdasdasdasdasda", api_ur);
@@ -205,7 +204,8 @@ $(function () {
                     <p class="valorr">${cada_producto.valor}</p>
 
                     <div class="botones">
-                        <img src="../imagenes/editar.svg" alt="">
+                        
+                    <img src="../imagenes/editar.svg" alt="">
                         <img src="../imagenes/basura.svg" alt="">
                     </div>
 
@@ -237,11 +237,20 @@ $(function () {
 
 
 
-    //mostrar modal de crear
+    //mostrar modal de crear y eliminar
     $('.craerProducto').on('click', function () {
         console.log("sdfsdfs");
         
         $('.modalCrear').css('display', 'flex');
+       
+
+    });
+
+    $('.craerProducto').on('click', function () {
+        console.log("sdfsdfs");
+        
+        $('.modalCrear').css('display', 'flex');
+       
 
     });
 
@@ -290,6 +299,7 @@ $(function () {
             },
             body: JSON.stringify(nuevoProducto)
         })
+
         .then(response => response.json())
         .then(data => {
             console.log('Éxito:', data);
