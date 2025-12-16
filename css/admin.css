@@ -129,8 +129,6 @@
 
 
 /*modal eliminar*/
-
-
 .modalEliminar{
     display: none;
     background-color: white;
@@ -142,4 +140,7 @@
     transform: translate(-50%, -50%);
     border: 3px solid rgba(194,185,185,0.8);
     z-index: 20;
+
 }
+
+

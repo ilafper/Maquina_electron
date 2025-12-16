@@ -201,12 +201,14 @@ $(function () {
                     <div class="productoInformacion">
                         <h3>${cada_producto.nombreProducto}</h3>
                     </div>
+
                     <p class="valorr">${cada_producto.valor}</p>
 
                     <div class="botones">
-                        
-                    <img src="../imagenes/editar.svg" alt="">
-                        <img src="../imagenes/basura.svg" alt="">
+
+                        <button data-id="${cada_producto._id}" class="editarBtn"><img src="../imagenes/editar.svg" alt=""></button>
+                        <button data-id="${cada_producto._id}" class="basuraTrash"><img class="botonTrash" src="../imagenes/basura.svg" alt=""></button>
+
                     </div>
 
 
@@ -229,7 +231,6 @@ $(function () {
 
     $('.btnCancelar').on('click', function () {
        
-        
         $('.modalCrear').css('display', 'none');
     });
 
@@ -242,16 +243,6 @@ $(function () {
         console.log("sdfsdfs");
         
         $('.modalCrear').css('display', 'flex');
-       
-
-    });
-
-    $('.craerProducto').on('click', function () {
-        console.log("sdfsdfs");
-        
-        $('.modalCrear').css('display', 'flex');
-       
-
     });
 
 
@@ -311,6 +302,26 @@ $(function () {
         });
 
     });
+
+
+    
+    /*borrar modal*/
+    $(document).on('click', '.basuraTrash', function () {
+        console.log("basura basura");
+        let idEliminarProducto=$(this).data('id');
+        console.log(idEliminarProducto);
+        $('.modalEliminar').css('display', 'flex');
+    });
+
+    $(document).on('click', '.cancelarEliminar', function () {
+        console.log("basura cancelar");
+        $('.modalEliminar').css('display', 'none');
+    });
+
+
+
+
+
 
 
 });
